@@ -1,1 +1,4 @@
-com\miukiyn\App.class
+com\miukiyn\service\Service.class
+com\miukiyn\app\App.class
+com\miukiyn\dao\DAO.class
+com\miukiyn\model\Uid.class

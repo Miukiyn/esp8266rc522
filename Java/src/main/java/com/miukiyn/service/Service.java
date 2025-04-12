@@ -9,10 +9,27 @@ import java.sql.ResultSet;
 
 public class Service {
 
-    public Uid buscarPorUid(String uidCartao) {
-        Uid uid = null;
+    // Método para buscar o UID no banco de dados
+    public String buscaruid(spark.Request req, spark.Response res) {
+        String uidCartao = req.queryParams("uid"); // Obtém o parâmetro 'uid' da query string
 
-        String sql = "SELECT * FROM cartoes WHERE uid_cartao = ?";
+        // Busca o UID no banco
+        Uid uid = buscarPorUid(uidCartao);
+
+        // Se o UID foi encontrado, retorna o nome do usuário
+        if (uid != null) {
+            res.status(200); // 200 OK
+            return "Usuário encontrado: " + uid.getNomeUsuario();
+        } else {
+            res.status(404); // 404 Not Found
+            return "Cartão não encontrado.";
+        }
+    }
+
+    // Método de busca no banco de dados
+    private Uid buscarPorUid(String uidCartao) {
+        Uid uid = null;
+        String sql = "SELECT * FROM uid WHERE uid_cartao = ?";
 
         try (Connection conn = DAO.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -35,18 +52,5 @@ public class Service {
         }
 
         return uid;
-    }
-
-    public static void main(String[] args) {
-        Service service = new Service();
-        Uid resultado = service.buscarPorUid("123ABC456");
-
-        if (resultado != null) {
-            System.out.println("ID: " + resultado.getId());
-            System.out.println("Usuário: " + resultado.getNomeUsuario());
-            System.out.println("UID do Cartão: " + resultado.getUidCartao());
-        } else {
-            System.out.println("Cartão não encontrado.");
-        }
     }
 }

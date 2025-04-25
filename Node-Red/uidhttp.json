@@ -1,0 +1,58 @@
+[
+    {
+      "id": "http_in_rfid",
+      "type": "http in",
+      "z": "flow",
+      "name": "esp",
+      "url": "/rfid",
+      "method": "post",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 120,
+      "y": 100,
+      "wires": [["format_java_request"]]
+    },
+    {
+      "id": "format_java_request",
+      "type": "function",
+      "z": "flow",
+      "name": "Preparar GET p/ Java",
+      "func": "let uid = msg.payload.uid || msg.payload;\nmsg.method = \"GET\";\nmsg.url = `http://localhost:8080/buscaruid?uid=${uid}`;\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 340,
+      "y": 100,
+      "wires": [["java_http_request"]]
+    },
+    {
+      "id": "java_http_request",
+      "type": "http request",
+      "z": "flow",
+      "name": "Consultar Java",
+      "method": "use",
+      "ret": "txt",
+      "paytoqs": "ignore",
+      "url": "",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "authType": "",
+      "senderr": false,
+      "headers": [],
+      "x": 560,
+      "y": 100,
+      "wires": [["http_response_return"]]
+    },
+    {
+      "id": "http_response_return",
+      "type": "http response",
+      "z": "flow",
+      "name": "Resposta p/ ESP",
+      "statusCode": "",
+      "headers": {},
+      "x": 780,
+      "y": 100,
+      "wires": []
+    }
+  ]
+  

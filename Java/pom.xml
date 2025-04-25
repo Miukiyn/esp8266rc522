@@ -44,13 +44,19 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.32</version>  <!-- Ou a versão mais recente -->
+      <version>1.7.32</version>  
     </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>1.7.32</version>  <!-- Ou a versão mais recente -->
+      <version>1.7.32</version>  
+    </dependency>
+
+    <dependency>
+      <groupId>io.github.cdimascio</groupId>
+      <artifactId>java-dotenv</artifactId>
+      <version>5.2.2</version>
     </dependency>
 
     <dependency>

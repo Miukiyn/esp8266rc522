@@ -30,10 +30,10 @@ Este projeto é **livre para uso e modificação**. Sinta-se à vontade para est
 
 ---
 
-## 📎 Repositório
+## 📎 Documentação
 
-Você pode acessar o código completo e os exemplos de uso aqui:  
-[https://github.com/Miukiyn/esp8266rc522](https://github.com/Miukiyn/esp8266rc522)
+Você pode acessar a documentação do projeto aqui:  
+[Documentação](https://github.com/Miukiyn/esp8266rc522/blob/main/Documentation/DOCUMENTATION.md)
 
 ---
 

@@ -19,7 +19,7 @@ Este projeto foi desenvolvido com o objetivo de **praticar conceitos de microcon
 
 ## 💡 Como Funciona
 
-1. O ESP8266 lê uma tag RFID via módulo RC522.
+1. O ESP8266 lê uma tag RFID via módulo RC522
 2. A informação é enviada para o servidor via requisição HTTP.
 3. O backend consulta os dados em um banco de dados MySQL na nuvem.
 4. Os dados podem ser exibidos e monitorados em tempo real.
